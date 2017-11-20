@@ -1,10 +1,12 @@
 assets:     
   - d8testsite.sql.gz
 steps:
-  - name: Update Composer
-    command: '/usr/local/bin/composer global update'
-  - name: Install drush-master for d8
-    command: 'composer global require drush/drush:8.* ; cd /usr/local/bin ; mv drush drush7 ; ln -s $HOME/.composer/vendor/bin/drush drush'
+  - name: Update composer
+    command: '/usr/local/bin/composer self-update'
+  - name: Add Drupal package repository for Drupal 8.
+    command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
+  - name: Install composer packages with dependencies.
+    command: 'composer install -d /src/docroot/'
   - name: Probo site setup
     plugin: Drupal
     drupalVersion: 8
