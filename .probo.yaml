@@ -4,9 +4,9 @@ steps:
   - name: Update composer
     command: '/usr/local/bin/composer self-update'
   - name: Add Drupal package repository for Drupal 8.
-    command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
+    command: 'composer config -d /src/ repositories.drupal composer https://packages.drupal.org/8'
   - name: Install composer packages with dependencies.
-    command: 'composer install -d /src/docroot/'
+    command: 'composer install -d /src/'
   - name: Probo site setup
     plugin: Drupal
     drupalVersion: 8
