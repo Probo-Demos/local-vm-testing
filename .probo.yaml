@@ -7,8 +7,10 @@ steps:
     command: 'composer global require drush/drush:8.* ; cd /usr/local/bin ; mv drush drush7 ; ln -s $HOME/.composer/vendor/bin/drush drush'
   - name: Probo site setup
     plugin: Drupal
+    drupalVersion: 8
     database: d8testsite.sql.gz
+    subDirectory: docroot
     databaseGzipped: true
-    databaseUpdates: true
+    databaseUpdates: false
     revertFeatures: false
     clearCaches: true
